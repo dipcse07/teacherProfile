@@ -31,24 +31,16 @@ int count = 0;
 List teachersInfo = [];
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    this.getData();
-  }
-
   var data;
 
   var collegeDataLenght;
 
-  List<String> keyList;
+  List<String> keyList = [];
 
   String SelectedUniversity;
 
 //  @override
 //  void initState() {
-//
 //    this.getData();
 //  }
 
@@ -60,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //print(response.body);
     print('tapped');
-
     data = jsonDecode(response.body.toString());
 
     collegeDataLenght = data['CollegeName1'].length;
@@ -70,7 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     keyList =
         jsonDecode(response.body.toString()).keys.toList() as List<String>;
-
     setState(() {
       print(keyList);
     });
@@ -86,14 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Container(
           child: Column(
             children: <Widget>[
-//              FlatButton(
-//                onPressed: () {
-//                  getData();
-//
-//                  print('the count: $count');
-//                },
-//                child: Text('get data'),
-//              ),
+              FlatButton(
+                onPressed: () {
+                  getData();
+
+                  print('the count: $count');
+                },
+                child: Text('get data'),
+              ),
               DropdownButton<String>(
                 value: SelectedUniversity,
                 items: keyList.map((String value) {
@@ -102,37 +92,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(value),
                   );
                 }).toList(),
-
                 onChanged: (_value) {
                   //valueChanged(_value);
                   print(_value);
                   print(keyList);
-
-                  Text(
-                    '_value',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  );
-
-                  getData();
                   setState(() {
                     SelectedUniversity = _value;
-                    print(SelectedUniversity);
-
-//                  Text(
-//                    selectUniversity,
-//                    textAlign: TextAlign.center,
-//                    style: TextStyle(color: Colors.white),
-//                  );
                   });
                 },
-
-//                  style: TextStyle(
-//                    color: Colors.white,
-//                  ),
                 hint: Text(
                   'Select Universities',
                   style: TextStyle(
@@ -142,53 +109,56 @@ class _MyHomePageState extends State<MyHomePage> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              Expanded(
-                child: ListView.builder(
-                    itemCount:
-                        collegeDataLenght == null ? 0 : collegeDataLenght,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                        height: 110,
-                        child: Card(
-                          child: Row(
-                            //mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8, right: 8),
-                                child: CircleAvatar(
-                                  radius: 45.0,
-                                  backgroundColor: Colors.red,
-                                  backgroundImage:
+              SelectedUniversity == null
+                  ? SizedBox()
+                  : Expanded(
+                      child: ListView.builder(
+                          itemCount:
+                              collegeDataLenght == null ? 0 : collegeDataLenght,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                              height: 110,
+                              child: Card(
+                                child: Row(
+                                  //mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 8, right: 8),
+                                      child: CircleAvatar(
+                                        radius: 45.0,
+                                        backgroundColor: Colors.red,
+                                        backgroundImage:
+                                            data[SelectedUniversity.toString()]
+                                                            [index]
+                                                        ['avatarImage'] ==
+                                                    'url'
+                                                ? AssetImage('images/url.jpg')
+                                                : null,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Text(
                                       data[SelectedUniversity.toString()][index]
-                                                  ['avatarImage'] ==
-                                              'url'
-                                          ? AssetImage('images/url.jpg')
-                                          : null,
+                                              ['teacherName']
+                                          .toString(),
+                                      style: TextStyle(
+                                        //fontFamily: 'Pacifico',
+                                        fontSize: 25.0,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(
-                                width: 10.0,
-                              ),
-                              Text(
-                                data[SelectedUniversity.toString()][index]
-                                        ['teacherName']
-                                    .toString(),
-                                style: TextStyle(
-                                  //fontFamily: 'Pacifico',
-                                  fontSize: 25.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
-              )
+                            );
+                          }),
+                    )
             ],
           ),
         ));
@@ -246,5 +216,3 @@ class DipGridView extends StatelessWidget {
     );
   }
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////
