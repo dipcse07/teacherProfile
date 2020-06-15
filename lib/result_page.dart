@@ -47,7 +47,7 @@ class ResultPage extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Pacifico',
               fontSize: 20.0,
-              color: Colors.white,
+              //color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -55,7 +55,7 @@ class ResultPage extends StatelessWidget {
             title,
             style: TextStyle(
               fontFamily: 'Source Sans Pro',
-              color: Colors.white70,
+              color: Colors.black54,
               letterSpacing: 2.5,
               fontWeight: FontWeight.bold,
             ),
@@ -64,7 +64,7 @@ class ResultPage extends StatelessWidget {
             height: 20,
             width: 150.0,
             child: Divider(
-              color: Colors.teal.shade100,
+              color: Colors.black38,
             ),
           ),
           Card(
