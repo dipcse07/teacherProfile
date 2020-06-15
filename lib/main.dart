@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Teacher\s Profile',
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       home: MyHomePage(title: 'Teacher\'s Profile'),
     );
   }
@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 hint: Text(
                   'Select Universities',
                   style: TextStyle(
-                    color: Colors.white,
+                    //color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
@@ -193,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         style: TextStyle(
                                           //fontFamily: 'Pacifico',
                                           fontSize: 25.0,
-                                          color: Colors.white,
+                                         // color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
