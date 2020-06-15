@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Teacher\s Profile',
       theme: ThemeData.dark(),
-      home: MyHomePage(title: 'Teacher\s Profile'),
+      home: MyHomePage(title: 'Teacher\'s Profile'),
     );
   }
 }
@@ -32,6 +32,14 @@ int count = 0;
 List teachersInfo = [];
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    this.getData();
+  }
+
   var data;
 
   var collegeDataLenght;
@@ -79,14 +87,14 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              FlatButton(
-                onPressed: () {
-                  getData();
-
-                  print('the count: $count');
-                },
-                child: Text('get data'),
-              ),
+//              FlatButton(
+//                onPressed: () {
+//                  getData();
+//
+//                  print('the count: $count');
+//                },
+//                child: Text('get data'),
+//              ),
               DropdownButton<String>(
                 value: SelectedUniversity,
                 items: keyList.map((String value) {
