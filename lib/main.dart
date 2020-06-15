@@ -163,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Container(
                                 padding:
                                     EdgeInsets.only(left: 10.0, right: 10.0),
-                                height: 110,
+                                height: 70,
                                 child: Card(
                                   child: Row(
                                     // mainAxisAlignment: MainAxisAlignment.center,
@@ -174,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         padding: const EdgeInsets.only(
                                             left: 8, right: 8),
                                         child: CircleAvatar(
-                                          radius: 45.0,
+                                          radius: 28.0,
                                           backgroundColor: Colors.red,
                                           backgroundImage: data[
                                                           SelectedUniversity
