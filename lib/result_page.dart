@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
 
-class resutPage extends StatelessWidget {
+class ResultPage extends StatelessWidget {
+  final String teacherName;
+  final String title;
+  final String avatarImage;
+  final String phone;
+  final String email;
+  final String address;
+  final String teacherID;
+
+  ResultPage(
+      {@required this.teacherName,
+      @required this.title,
+      @required this.avatarImage,
+      @required this.phone,
+      @required this.email,
+      @required this.address,
+      @required this.teacherID});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 //      backgroundColor: Colors.teal,
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: Text('Teacher\'s Profile'),
       ),
       body: Center(
         child: Column(
@@ -18,7 +35,7 @@ class resutPage extends StatelessWidget {
               backgroundImage: null,
             ),
             Text(
-              'Md Sazid Hasan Dip',
+              teacherName,
               style: TextStyle(
                 fontFamily: 'Pacifico',
                 fontSize: 20.0,
@@ -27,10 +44,10 @@ class resutPage extends StatelessWidget {
               ),
             ),
             Text(
-              'FLUTTER DEVELOPER',
+              title,
               style: TextStyle(
                 fontFamily: 'Source Sans Pro',
-                color: Colors.teal.shade100,
+                color: Colors.white70,
                 letterSpacing: 2.5,
                 fontWeight: FontWeight.bold,
               ),
@@ -47,14 +64,14 @@ class resutPage extends StatelessWidget {
               child: ListTile(
                 leading: Icon(
                   Icons.phone,
-                  color: Colors.teal,
+                  // color: Colors.teal,
                 ),
                 title: Text(
-                  '1234567890',
+                  phone,
                   style: TextStyle(
                     fontFamily: 'Source Sans Pro',
                     fontSize: 20,
-                    color: Colors.teal.shade900,
+                    //color: Colors.teal.shade900,
                   ),
                 ),
               ),
@@ -64,14 +81,14 @@ class resutPage extends StatelessWidget {
               child: ListTile(
                 leading: Icon(
                   Icons.email,
-                  color: Colors.teal,
+                  //color: Colors.teal,
                 ),
                 title: Text(
-                  'dipcse07@gmail.com',
+                  email,
                   style: TextStyle(
                     fontFamily: 'Source Sans Pro',
                     fontSize: 20,
-                    color: Colors.teal.shade900,
+                    //color: Colors.teal.shade900,
                   ),
                 ),
               ),

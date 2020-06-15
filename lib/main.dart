@@ -124,7 +124,29 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => resutPage(),
+                                    builder: (context) => ResultPage(
+                                        teacherName:  data[SelectedUniversity.toString()]
+                                        [index]['teacherName']
+                                            .toString(),
+                                        title:  data[SelectedUniversity.toString()]
+                                        [index]['title']
+                                            .toString(),
+                                        avatarImage:  data[SelectedUniversity.toString()]
+                                        [index]['avatarImage']
+                                            .toString(),
+                                        phone:  data[SelectedUniversity.toString()]
+                                        [index]['phone']
+                                            .toString(),
+                                        email:  data[SelectedUniversity.toString()]
+                                        [index]['email']
+                                            .toString(),
+                                        address:  data[SelectedUniversity.toString()]
+                                        [index]['address']
+                                            .toString(),
+
+                                        teacherID:  data[SelectedUniversity.toString()]
+                                        [index]['teacherID']
+                                            .toString()),
                                   ),
                                 );
                               },
