@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
+import 'result_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -74,7 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         //body: List.generate(length, generator)
         body: Container(
+          alignment: Alignment.center,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               FlatButton(
                 onPressed: () {
@@ -116,44 +119,56 @@ class _MyHomePageState extends State<MyHomePage> {
                           itemCount:
                               collegeDataLenght == null ? 0 : collegeDataLenght,
                           itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                              height: 110,
-                              child: Card(
-                                child: Row(
-                                  //mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 8, right: 8),
-                                      child: CircleAvatar(
-                                        radius: 45.0,
-                                        backgroundColor: Colors.red,
-                                        backgroundImage:
-                                            data[SelectedUniversity.toString()]
-                                                            [index]
-                                                        ['avatarImage'] ==
-                                                    'url'
-                                                ? AssetImage('images/url.jpg')
-                                                : null,
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => resutPage(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding:
+                                    EdgeInsets.only(left: 10.0, right: 10.0),
+                                height: 110,
+                                child: Card(
+                                  child: Row(
+                                    // mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 8, right: 8),
+                                        child: CircleAvatar(
+                                          radius: 45.0,
+                                          backgroundColor: Colors.red,
+                                          backgroundImage: data[
+                                                          SelectedUniversity
+                                                              .toString()]
+                                                      [index]['avatarImage'] ==
+                                                  'url'
+                                              ? AssetImage('images/url.jpg')
+                                              : null,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: 10.0,
-                                    ),
-                                    Text(
-                                      data[SelectedUniversity.toString()][index]
-                                              ['teacherName']
-                                          .toString(),
-                                      style: TextStyle(
-                                        //fontFamily: 'Pacifico',
-                                        fontSize: 25.0,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                      SizedBox(
+                                        width: 10.0,
                                       ),
-                                    ),
-                                  ],
+                                      Text(
+                                        data[SelectedUniversity.toString()]
+                                                [index]['teacherName']
+                                            .toString(),
+                                        style: TextStyle(
+                                          //fontFamily: 'Pacifico',
+                                          fontSize: 25.0,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             );
