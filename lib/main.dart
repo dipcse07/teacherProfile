@@ -199,7 +199,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           fontWeight: FontWeight.bold,
 
                                         ),
+                                        minFontSize: 18,
                                         maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                       ),
                                     ],
                                   ),
