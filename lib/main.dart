@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
+
 import 'dart:convert';
 import 'result_page.dart';
 
@@ -184,18 +186,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: 10.0,
+                                        width: 6.0,
                                       ),
-                                      Text(
+                                      AutoSizeText(
                                         data[SelectedUniversity.toString()]
                                                 [index]['teacherName']
                                             .toString(),
                                         style: TextStyle(
                                           //fontFamily: 'Pacifico',
-                                          fontSize: 25.0,
+                                          fontSize: 20.0,
                                          // color: Colors.white,
                                           fontWeight: FontWeight.bold,
+
                                         ),
+                                        maxLines: 2,
                                       ),
                                     ],
                                   ),
