@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   http: ^0.12.1
   auto_size_text: ^2.1.0
+  menu_button: ^1.2.1
+
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +45,9 @@ flutter:
   uses-material-design: true
 
   assets:
+    - images/antu.jpg
+    - images/talha.jpg
+    - images/rahit.jpg
     - images/url.jpg
 
 

@@ -36,7 +36,7 @@ class ResultPage extends StatelessWidget {
           CircleAvatar(
             radius: 50.0,
             backgroundColor: Colors.red,
-            backgroundImage: AssetImage('images/$avatarImage.jpg'),
+            backgroundImage: AssetImage(avatarImage),
           ),
           SizedBox(
             height: 20,
